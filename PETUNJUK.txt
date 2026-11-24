@@ -1,0 +1,23 @@
+PERBATA — Paket Perbaikan
+
+Perbaikan:
+1. Konversi bata ke m² dan m² ke bata memakai patokan 1 bata = 12,25 m².
+2. Susunan visual petak dibuat otomatis mendekati bentuk persegi, bukan selalu 4 kolom.
+3. Mendukung jumlah bata pecahan; petak terakhir ditampilkan sebagai petak sebagian.
+4. Validasi angka kosong, negatif, tidak valid, dan angka yang terlalu besar.
+5. Visualisasi dibatasi maksimal 400 petak agar HP tidak berat. Total perhitungan tetap memakai angka penuh.
+6. Font eksternal dihapus agar tampilan tidak perlu mengunduh Google Fonts saat offline.
+7. Cache Service Worker dinaikkan ke versi v2 agar pembaruan bisa diterapkan.
+
+PENTING TENTANG PANJANG DAN LEBAR:
+Panjang susunan dan lebar susunan adalah ukuran kotak pembungkus dari ilustrasi petak. Keduanya BUKAN ukuran pasti bidang tanah. Jumlah bata/luas saja tidak cukup untuk mengetahui bentuk tanah. Untuk mendapatkan panjang dan lebar sebenarnya, ukur sisi tanah atau masukkan ukuran panjang dan lebar yang sebenarnya.
+
+Cara memperbarui aplikasi:
+1. Ekstrak ZIP.
+2. Ganti file lama di GitHub Pages/hosting dengan seluruh isi folder ZIP ini.
+3. Buka aplikasi saat online sekali agar Service Worker mengunduh versi baru.
+4. Jika masih menampilkan versi lama, tutup aplikasi lalu buka kembali. Pada beberapa perangkat, hapus cache situs atau instal ulang PWA mungkin diperlukan.
+
+Catatan:
+- PWA offline membutuhkan HTTPS (misalnya GitHub Pages) atau localhost.
+- Membuka index.html langsung dengan file:// tidak mengaktifkan Service Worker.

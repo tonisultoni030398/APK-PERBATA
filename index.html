@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#123c32" />
+  <meta name="description" content="Aplikasi perhitungan luas tanah berdasarkan satuan bata." />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>PERBATA — Kalkulator Luas Tanah</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img">
+            <rect x="5" y="5" width="38" height="38" rx="11" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M18 6v36M30 6v36M6 18h36M6 30h36" stroke="currentColor" stroke-width="2" opacity=".9"/>
+            <path d="M24 18v12M18 24h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-name">PERBATA</div>
+          <div class="brand-caption">KALKULATOR LUAS TANAH</div>
+        </div>
+      </div>
+      <div class="offline-pill"><span class="status-dot"></span> Siap digunakan</div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <p class="eyebrow">HITUNG TANAH LEBIH MUDAH</p>
+        <h1>Ukur luas tanah,<br><span>tanpa ribet.</span></h1>
+        <p class="intro-copy">Masukkan jumlah bata atau luas meter persegi. Hasil konversi akan terisi otomatis.</p>
+      </section>
+
+      <section class="calculator-card" aria-labelledby="calc-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">KALKULATOR</p>
+            <h2 id="calc-title">Masukkan ukuran tanah</h2>
+          </div>
+          <div class="measure-icon" aria-hidden="true">↗</div>
+        </div>
+
+        <div class="field-group">
+          <label for="bata">Jumlah perbata</label>
+          <div class="input-wrap">
+            <input type="number" name="bata" id="bata" placeholder="Contoh: 10" min="0" step="any" inputmode="decimal" />
+            <span class="input-unit">BATA</span>
+          </div>
+          <p class="field-hint">Boleh menggunakan angka pecahan, misalnya 2,5 bata (gunakan titik untuk desimal).</p>
+        </div>
+
+        <div class="conversion-divider"><span>ATAU</span></div>
+
+        <div class="field-group">
+          <label for="meter">Luas tanah</label>
+          <div class="input-wrap">
+            <input type="number" name="meter" id="meter" placeholder="Contoh: 122,5" min="0" step="any" inputmode="decimal" />
+            <span class="input-unit">M²</span>
+          </div>
+          <p class="field-hint">Masukkan luas dalam meter persegi.</p>
+        </div>
+
+        <p id="pesanValidasi" class="validation-message" role="alert" aria-live="polite"></p>
+        <div class="formula-note">
+          <span class="formula-symbol">i</span>
+          <span><strong>Patokan:</strong> 1 bata = 3,5 × 3,5 meter = 12,25 m²</span>
+        </div>
+      </section>
+
+      <section class="preview-card" aria-labelledby="preview-title">
+        <div class="section-heading preview-heading">
+          <div>
+            <p class="eyebrow">BENTUK TANAH</p>
+            <h2 id="preview-title">Visualisasi petak</h2>
+          </div>
+          <span class="live-label"><span></span> LIVE</span>
+        </div>
+        <div class="plot-stage">
+          <div class="plot-top-label">TAMPAK ATAS</div>
+          <div id="gambarTanah" class="grid-tanah" aria-label="Visualisasi petak tanah"></div>
+          <p class="plot-empty-hint">Masukkan jumlah bata untuk melihat petak tanah</p>
+        </div>
+        <div class="plot-legend"><span class="legend-swatch"></span> 1 kotak = 1 bata</div>
+        <p class="dimension-note">Panjang dan lebar di bawah menunjukkan ukuran susunan kotak untuk ilustrasi. Ukuran sebenarnya harus mengikuti bentuk dan pengukuran bidang tanah.</p>
+      </section>
+
+      <section class="results-section" aria-labelledby="results-title">
+        <div class="section-heading result-title">
+          <div>
+            <p class="eyebrow">RINGKASAN UKURAN</p>
+            <h2 id="results-title">Hasil perhitungan</h2>
+          </div>
+        </div>
+        <div class="result-grid">
+          <article class="result-card">
+            <div class="result-icon length-icon">↔</div>
+            <p class="result-label">Panjang susunan</p>
+            <div class="result-value"><span id="panjang">0</span><small>meter</small></div>
+          </article>
+          <article class="result-card">
+            <div class="result-icon width-icon">↕</div>
+            <p class="result-label">Lebar susunan</p>
+            <div class="result-value"><span id="lebar">0</span><small>meter</small></div>
+          </article>
+          <article class="result-card area-card">
+            <div class="result-icon area-icon">▦</div>
+            <p class="result-label">Total luas tanah</p>
+            <div class="result-value"><span id="luas">0</span><small>m²</small></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span class="footer-mark">P</span>
+      <span>PERBATA <b>•</b> Hitung dengan lebih praktis</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
